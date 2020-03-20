@@ -18,11 +18,11 @@ class DataHandler(object):
         train_data, test_data = self._load_data()
 
         #Erstellt ein Dictionary vom Datenset
-        #self.tokenizer_ru = tfds.features.text.SubwordTextEncoder.build_from_corpus((ru.numpy() for ru, en in train_data), target_vocab_size=2**13)
-        self.soos = tfds.features.text.SubwordTextEncoder([])
-        self.tokenizer_ru = self.soos.load_from_file("testen")
-        #self.tokenizer_en = tfds.features.text.SubwordTextEncoder.build_from_corpus((en.numpy() for ru, en in train_data), target_vocab_size=2**13)
-        self.tokenizer_en = self.soos.load_from_file("testen2")
+        self.tokenizer_ru = tfds.features.text.SubwordTextEncoder.build_from_corpus((ru.numpy() for ru, en in train_data), target_vocab_size=2**13)
+        #self.soos = tfds.features.text.SubwordTextEncoder([])
+        #self.tokenizer_ru = self.soos.load_from_file("testen")
+        self.tokenizer_en = tfds.features.text.SubwordTextEncoder.build_from_corpus((en.numpy() for ru, en in train_data), target_vocab_size=2**13)
+        #self.tokenizer_en = self.soos.load_from_file("testen2")
 
 
         #Aufbereitung der Daten
